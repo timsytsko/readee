@@ -1,0 +1,49 @@
+{% extends 'template.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="../static/css/book.css">
+{% endblock %}
+
+{% block title %}
+Book
+{% endblock %}
+
+{% block main %}
+<div id="name-author"></div>
+<div id="select-langs">
+    <select id="select-src" class="lang-select">
+        <option value="not-chosen">Choose source language</option>
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <option value="ru">Russian</option>
+    </select>
+    <select id="select-dest" class="lang-select">
+        <option value="not-chosen">Choose destination language</option>
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <option value="ru">Russian</option>
+    </select>
+</div>
+<div id="book">
+    <div id="book-text"></div>
+    <div id="translation-panel">
+        <div id="best-translation">
+            <div id="src-text"></div>
+            <div id="dest-text"></div>
+        </div>
+        <div id="extra-translations"></div>
+    </div>
+</div>
+<div id="page-info">
+    <div id="changing-page">
+        <p class="change-page">previous page</p>
+        <p class="change-page">next page</p>
+    </div>
+    <div id="page-quantity">
+        <p id="page-current">0</p>
+        <p>/</p>
+        <p id="page-left">0</p>
+    </div>
+</div>
+<script src="../static/js/book.js"></script>
+{% endblock %}

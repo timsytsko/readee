@@ -1,0 +1,52 @@
+#remember-div {
+    align-self: center;
+}
+
+#remember-cb {
+    border-color: #6c757d;
+    accent-color: #6c757d;
+}
+
+.login-psw {
+    width: 50%;
+    align-self: center;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #6c757d;
+}
+
+.login-psw:hover {
+    border-bottom: 1px solid black;
+}
+
+#welcome {
+    align-self: center;
+    font-size: xx-large;
+}
+
+#login-form {
+    align-self: center;
+    border: 1px solid #6c757d;
+    border-radius: 20px;
+    margin-left: 22%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    width: 56%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#submit-btn {
+    width: 12%;
+    margin-left: 44%;
+}
+
+#login-link {
+    align-self: center;
+    margin-top: 30px;
+}
+
+input:focus {
+    outline: none;
+}

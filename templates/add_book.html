@@ -1,0 +1,30 @@
+{% extends 'template.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="../static/css/add_book.css">
+{% endblock %}
+
+{% block title %}
+Add Book
+{% endblock %}
+
+{% block main %}
+<div id="loading">
+    <p>Loading...</p>
+</div>
+<form id="add-book-card" method="post" enctype="multipart/form-data">
+    <div id="div-title">
+        <p id="p-title">Title:</p>
+        <input type="text" id="inpt-title" name="title">
+        <p id="p-author">Author:</p>
+        <input type="text" id="inpt-author" name="author">
+    </div>
+    <div id="div-content">
+        <p id="p-content">Content:</p>
+        <input type="file" class="form-control" id="inpt-content" name="file">
+        <p id="p-formats">Supported formats: txt</p>
+    </div>
+    <button type="submit" class="btn btn-success" id="btn-add-book">Add book</button>
+</form>
+<script src="../static/js/add_book.js"></script>
+{% endblock %}

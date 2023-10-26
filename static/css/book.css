@@ -1,0 +1,115 @@
+#name-author {
+    margin-left: 3%;
+    font-size: x-large;
+}
+
+#change-page {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+}
+.new-page {
+    margin-right: 10px;
+    border: 1px solid #55595e;
+    border-radius: 3px;
+    width: fit-content;
+}
+
+#select-langs {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    margin-left: 56%;
+}
+
+.lang-select {
+    box-shadow: none;
+    border-radius: 3px;
+    margin: 2%;
+}
+
+#book {
+    border: 1px solid #55595e;
+    border-radius: 10px;
+    margin-left: 3%;
+    margin-right: 3%;
+    display: flex;
+    flex-direction: row;
+}
+
+#book-text {
+    width: 55%;
+    margin-left: 1%;
+    border-right: 1px solid #55595e;
+}
+
+.word:hover {
+    background-color: #55595e;
+    border-radius: 2px;
+    color: white;
+}
+
+#translation-panel {
+    margin-top: 3%;
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 35%;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+#translation-panel::-webkit-scrollbar {
+    display: none;
+}
+
+#translation-panel {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#best-translation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid #55595e;
+    font-size: x-large;
+}
+
+.part-name {
+    font-size: larger;
+}
+
+.part-name-translations {
+    border: 1px solid #55595e;
+    border-radius: 10px;
+    margin-left: 10%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-right: 2%;
+    padding-left: 2%;
+    width: 80%;
+}
+
+#page-info {
+    border: 1px solid #55595e;
+    border-top: 0px;
+    border-radius: 10px;
+    margin-left: 3%;
+    display: flex;
+    justify-content: space-between;
+    width: 94%;
+}
+
+#changing-page {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+    margin-left: 10%;
+}
+
+#page-quantity {
+    display: flex;
+    flex-direction: row;
+    width: 10%;
+}

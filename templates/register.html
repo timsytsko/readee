@@ -1,0 +1,21 @@
+{% extends 'template.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="../static/css/register.css">
+{% endblock %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block main %}
+<div id="reg-form">
+    <p id="welcome">Hello There!</p>
+    <input type="text" id="name" placeholder="Name" class="reg-psw">
+    <input type="text" id="username"placeholder="Username" class="reg-psw">
+    <input type="password" id="password" placeholder="Password" class="reg-psw">
+    <button class="btn btn-outline-secondary" id="submit-btn">Register</button>
+    <a href="/login" class="link-secondary" id="reg-link">Already have an account?</a>
+</div>
+<script src="../static/js/register.js"></script>
+{% endblock %}

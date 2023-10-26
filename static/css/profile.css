@@ -1,0 +1,35 @@
+#user-settings {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+}
+
+#p-user-settings {
+    font-size: xx-large;
+    margin-left: 20%;
+}
+
+#btn-logout {
+    width: fit-content;
+}
+
+.user-data {
+    width: 40%;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #6c757d;
+}
+
+#name-saved {
+    display: inline;
+    visibility: hidden;
+}
+
+#username-saved {
+    display: inline;
+    visibility: hidden;
+}
+
+input:focus {
+    outline: none;
+}

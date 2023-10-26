@@ -1,0 +1,24 @@
+{% extends 'template.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="../static/css/login.css">
+{% endblock %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block main %}
+<div id="login-form">
+    <p id="welcome">Welcome Back!</p>
+    <input type="text" id="username"placeholder="Username" class="login-psw">
+    <input type="password" id="password" placeholder="Password" class="login-psw">
+    <div class="form-check mb-2 mr-sm-2" id="remember-div">
+        <input type="checkbox" id="remember-cb"/>
+        <label class="form-check-label">Remember me</label>
+    </div>
+    <button class="btn btn-outline-secondary" id="submit-btn">Login</button>
+    <a href="/register" class="link-secondary" id="login-link">Don't have an account?</a>
+</div>
+<script src="../static/js/login.js"></script>
+{% endblock %}

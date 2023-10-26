@@ -1,0 +1,25 @@
+#books {
+    padding-left: 10%;
+}
+
+.book {
+    border: 3px solid #55595e;
+    border-radius: 10px;
+    margin-top: 20px;
+    width: 75%;
+}
+
+.book:hover {
+    background-color: #6c757d;
+    color: white;
+}
+
+.book-name {
+    font-size: xx-large;
+    margin-left: 3%;
+}
+
+.book-author {
+    font-size: large;
+    margin-left: 3%;
+}

@@ -1,0 +1,24 @@
+header {
+    margin-right: 3%;
+    margin-left: 3%;
+}
+
+.header-nav {
+    color: #6c757d;
+}
+
+.header-nav:hover {
+    color: #55595e;
+}
+
+#login-btn {
+    background-color: #6c757d;
+}
+
+#login-btn:hover {
+    background-color: #55595e;
+}
+
+#readee:hover {
+    transform: scale(1.05);
+}

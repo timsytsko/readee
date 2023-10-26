@@ -1,0 +1,27 @@
+{% extends 'template.html' %}
+
+{% block css %}
+<link rel="stylesheet" href="../static/css/profile.css">
+{% endblock %}
+
+{% block title %}
+Profile
+{% endblock %}
+
+{% block main %}
+<div class="" id="user-settings">
+    <p id="p-user-settings">User settings</p>
+    <div id="div-name">
+        <input type="text" class="user-data" id="name">
+        <button class="btn btn-outline-secondary" id="btn-save-name">Save</button>
+        <p class="text-success" id="name-saved">Saved!</p>
+    </div>
+    <div id="div-username">
+        <input type="text" class="user-data" id="username">
+        <button class="btn btn-outline-secondary" id="btn-save-username">Save</button>
+        <p class="text-success" id="username-saved">Saved!</p>
+    </div>
+    <button class="btn btn-danger" id="btn-logout">Log Out</button>
+</div>
+<script src="../static/js/profile.js"></script>
+{% endblock %}

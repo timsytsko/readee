@@ -72,78 +72,76 @@ send_xhr('POST', '/get_book_info',
         document.getElementById('name-author').innerHTML = `
             <p>${rec_data.title}, ${rec_data.author}</p>
         `;
-        if (rec_data.file_extension == 'txt') {
-            let content = rec_data.content;
-            for (let i of content) {
-                content = content.replace('\r\n', ' \n ');
+        let content = rec_data.content;
+        for (let i of content) {
+            content = content.replace('\r\n', ' \n ');
+        }
+        content = content.split(' ');
+        document.getElementById('book-text').innerHTML += `
+            <p id="p-book-text"></p>
+        `;
+        for (i in content) {
+            if (content[i] == '\n') {
+                document.getElementById('p-book-text').innerHTML += `
+                    <span class="word" id="word-${i}"><br></span>
+                `;
+            } else {
+                document.getElementById('p-book-text').innerHTML += `
+                    <span class="word" id="word-${i}">${content[i]}</span>
+                `;
             }
-            content = content.split(' ');
-            document.getElementById('book-text').innerHTML += `
-                <p id="p-book-text"></p>
-            `;
-            for (i in content) {
-                if (content[i] == '\n') {
-                    document.getElementById('p-book-text').innerHTML += `
-                        <span class="word" id="word-${i}"><br></span>
-                    `;
-                } else {
-                    document.getElementById('p-book-text').innerHTML += `
-                        <span class="word" id="word-${i}">${content[i]}</span>
-                    `;
-                }
-            }
-            for (let i = 0; i < content.length; i++) {
-                document.getElementById(`word-${i}`).
-                addEventListener('click', () => {
-                    let word = document.getElementById(`word-${i}`).innerHTML;
-                    let unwanted_characters = ['.', ',', '"', '?', '!', '¿', '¡', ':', ';', '(', ')'];
-                    for (let i = 0; i < word.length; i++) {
-                        for (let j of unwanted_characters) {
-                            word = word.replace(j, '');
-                        }
+        }
+        for (let i = 0; i < content.length; i++) {
+            document.getElementById(`word-${i}`).
+            addEventListener('click', () => {
+                let word = document.getElementById(`word-${i}`).innerHTML;
+                let unwanted_characters = ['.', ',', '"', '?', '!', '¿', '¡', ':', ';', '(', ')'];
+                for (let i = 0; i < word.length; i++) {
+                    for (let j of unwanted_characters) {
+                        word = word.replace(j, '');
                     }
-                    send_xhr('POST', '/get_translation',
-                        {
-                            'username': getCookie('username'),
-                            'session_key': getCookie('session_key'),
-                            'text': word,
-                            'src': document.getElementById('select-src').value,
-                            'dest': document.getElementById('select-dest').value
-                        },
-                        function(rec_data) {
-                            if (rec_data.error == 'incorrect_session_key') {
-                                document.cookie = 'username=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT'
-                                document.cookie = 'session_key=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT'
-                                window.location.replace('/login');
-                            } else if (rec_data.error == 'src_lang_not_specified') {
-                                document.getElementById('select-src').
-                                style.borderColor = 'red';
-                            } else if (rec_data.error == 'dest_lang_not_specified') {
-                                document.getElementById('select-dest').
-                                style.borderColor = 'red';
-                            } else {
-                                document.getElementById('src-text').innerHTML = word;
-                                document.getElementById('dest-text').
-                                innerHTML = rec_data.best_translation;
-                                let all_translations = rec_data.translation['all-translations'];
-                                document.getElementById('extra-translations').innerHTML = '';
-                                for (let i of all_translations) {
-                                    let add = `
-                                    <div class="part-of-speech">
-                                        <p class="part-name">${i[0]}</p>
-                                        <div class="part-name-translations">
-                                    `;
-                                    for (let j of i[1]) {
-                                        add += `<p class="part-nanme-translation">${j}</p>`
-                                    }
-                                    document.getElementById('extra-translations').
-                                    innerHTML += add;
+                }
+                send_xhr('POST', '/get_translation',
+                    {
+                        'username': getCookie('username'),
+                        'session_key': getCookie('session_key'),
+                        'text': word,
+                        'src': document.getElementById('select-src').value,
+                        'dest': document.getElementById('select-dest').value
+                    },
+                    function(rec_data) {
+                        if (rec_data.error == 'incorrect_session_key') {
+                            document.cookie = 'username=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT'
+                            document.cookie = 'session_key=;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT'
+                            window.location.replace('/login');
+                        } else if (rec_data.error == 'src_lang_not_specified') {
+                            document.getElementById('select-src').
+                            style.borderColor = 'red';
+                        } else if (rec_data.error == 'dest_lang_not_specified') {
+                            document.getElementById('select-dest').
+                            style.borderColor = 'red';
+                        } else {
+                            document.getElementById('src-text').innerHTML = word;
+                            document.getElementById('dest-text').
+                            innerHTML = rec_data.best_translation;
+                            let all_translations = rec_data.translation['all-translations'];
+                            document.getElementById('extra-translations').innerHTML = '';
+                            for (let i of all_translations) {
+                                let add = `
+                                <div class="part-of-speech">
+                                    <p class="part-name">${i[0]}</p>
+                                    <div class="part-name-translations">
+                                `;
+                                for (let j of i[1]) {
+                                    add += `<p class="part-nanme-translation">${j}</p>`
                                 }
+                                document.getElementById('extra-translations').
+                                innerHTML += add;
                             }
                         }
-                    );
-                });
-            }
+                    }
+                );
+            });
         }
     }
 );

@@ -194,10 +194,23 @@ def add_new_book():
             return jsonify({'error': 'too_long_author'})
         if file.filename.split('.')[-1] != 'txt':
             return jsonify({'error': 'incorrect_file_extension'})
-        try:
-            content = file.stream.read().decode('utf-8')
-        except:
-            content = file.stream.read().decode('cp1252')
+        content = file.stream.read()[:]
+        charsets = ['utf-8', 'cp1252']
+        
+        for cs in charsets:
+            try:
+                content = content.decode(cs)
+                break
+            except Exception as e:
+                print(e)
+        # try:
+        #     content = file.stream.read().decode('utf-8')
+        # except:
+        #     content = file.stream.read().decode('cp1252')
+        # try:
+        #     content = file.stream.read().decode('cp1252')
+        # except:
+        #     content = file.stream.read().decode('utf-8')
         if len(content) > 500000:
             print(len(content))
             return jsonify({'error': 'too_big_file'})
@@ -301,6 +314,10 @@ def page_my_books():
 @app.route('/book')
 def book():
     return render_template('book.html')
+
+@app.route('/book_settings')
+def book_settings():
+    return render_template('book_settings.html')
 
 @app.errorhandler(404)
 def page_404(e):

@@ -9,7 +9,10 @@ Book
 {% endblock %}
 
 {% block main %}
-<div id="name-author"></div>
+<div style="display: flex; justify-content: space-between;">
+    <div id="name-author"></div>
+    <button id="btn-settings">Settings</button>
+</div>
 <div id="select-langs">
     <select id="select-src" class="lang-select">
         <option value="not-chosen">Choose source language</option>
@@ -25,7 +28,9 @@ Book
     </select>
 </div>
 <div id="book">
-    <div id="book-text"></div>
+    <div id="book-text">
+        <p style="font-size: xx-large;">Loading book. This may take a while</p>
+    </div>
     <div id="translation-panel">
         <div id="best-translation">
             <div id="src-text"></div>
@@ -36,13 +41,13 @@ Book
 </div>
 <div id="page-info">
     <div id="changing-page">
-        <p class="change-page">previous page</p>
-        <p class="change-page">next page</p>
+        <button class="change-page btn btn-outline-light border-0 text-dark" id="page-prev">previous page</button>
+        <button class="change-page btn btn-outline-light border-0 text-dark" id="page-next">next page</button>
     </div>
     <div id="page-quantity">
-        <p id="page-current">0</p>
+        <p id="page-current">1</p>
         <p>/</p>
-        <p id="page-left">0</p>
+        <p id="pages-in-total">1</p>
     </div>
 </div>
 <script src="../static/js/book.js"></script>

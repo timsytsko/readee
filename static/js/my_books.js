@@ -73,8 +73,8 @@ send_xhr('POST', '/get_books_by_user',
                         window.location.replace('/book?id=' + id.toString());
                     });
                     book_div.innerHTML = `
-                        <p class="book-name">${rec_data.title}</p>
-                        <p class="book-author">${rec_data.author}</p>
+                    <p class="book-name">${rec_data.title}</p>
+                    <p class="book-author">${rec_data.author}</p>
                     `;
                     parent_div.appendChild(book_div);
                 }

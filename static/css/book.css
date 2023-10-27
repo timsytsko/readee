@@ -3,6 +3,17 @@
     font-size: x-large;
 }
 
+#btn-settings {
+    margin-right: 10%;
+    font-size: larger;
+    border: none;
+    background-color: white;
+}
+
+#btn-settings:hover {
+    color: #55595e;
+}
+
 #change-page {
     display: flex;
     flex-direction: row;

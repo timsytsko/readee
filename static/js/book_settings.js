@@ -24,6 +24,20 @@ function send_xhr(method, addr, data, handler){
     xhr.send(JSON.stringify(data));
 }
 
+function get_get_parameter(parameterName) {
+    let result = null,
+    tmp = [];
+    location.search
+            .substr(1)
+            .split("&")
+            .forEach(function (item) {
+            tmp = item.split("=");
+            if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+        });
+    return result;
+}
+
+
 send_xhr('POST', '/check_session_key',
     {
         'username': getCookie('username'),
@@ -47,3 +61,15 @@ document.getElementById('nav-ul').innerHTML = `
 <li class="nav-item"><a href="/add_book" class="nav-link"><p class="header-nav">Add Book</p></a></li>
     <li class="nav-item"><a href="/profile" class="nav-link"><p class="header-nav">Profile</p></a></li>
 `;
+
+send_xhr('POST', '/get_book_titles',
+    {
+        'username': getCookie('username'),
+        'session_key': getCookie('session_key'),
+        'id': get_get_parameter('id')
+    },
+    function(rec_data) {
+        document.getElementById('name').value = rec_data.title;
+        document.getElementById('author').value = rec_data.author;
+    }
+);

@@ -1,0 +1,35 @@
+#book-settings {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+}
+
+#p-book-settings {
+    font-size: xx-large;
+    margin-left: 20%;
+}
+
+#btn-delete {
+    width: fit-content;
+}
+
+.book-data {
+    width: 40%;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #6c757d;
+}
+
+#name-saved {
+    display: inline;
+    visibility: hidden;
+}
+
+#author-saved {
+    display: inline;
+    visibility: hidden;
+}
+
+input:focus {
+    outline: none;
+}

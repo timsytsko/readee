@@ -59,7 +59,7 @@ function draw_book() {
     }
     content = content.slice((current_page - 1) * words_in_page, upper_border);
     for (let i = 0; i < content.length; i++) {
-        if (content[i] == '\n') {
+        if (content[i] == '\n' || content[i] == '\r\n' || content[i] == '\r' || content[i] == '') {
             document.getElementById('p-book-text').innerHTML += `
                 <span class="word" id="word-${i}"><br></span>
             `;
@@ -68,6 +68,7 @@ function draw_book() {
                 <span class="word" id="word-${i}">${content[i]}</span>
             `;
         }
+        console.log([content[i]]);
     }
     for (let i = 0; i < content.length; i++) {
         document.getElementById(`word-${i}`).

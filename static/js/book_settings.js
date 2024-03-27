@@ -73,3 +73,20 @@ send_xhr('POST', '/get_book_titles',
         document.getElementById('author').value = rec_data.author;
     }
 );
+
+document.getElementById('btn-save-name').
+addEventListener('click', () => {
+    send_xhr('POST', '/change_book_title',
+        {
+            'username': getCookie('username'),
+            'session_key': getCookie('session_key'),
+            'id': get_get_parameter('id'),
+            'new_title': document.getElementById('name').value
+        },
+        function(rec_data) {
+            if (rec_data.error == 'success') {
+                
+            }
+        }
+    );
+});
